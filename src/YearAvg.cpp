@@ -20,10 +20,21 @@ YearAvg::YearAvg(double temp, int year, double rain) {
 	this->rain = rain;
 }
 
-std::string YearAvg::toCSV(void) {
-//	std:ios
-	return NULL;
+const std::string YearAvg::toCSV(void) {
+	std:ostringstream strs;
+	strs << temp;
+	std::string tempStr = strs.str();
+
+	strs << year;
+	std::string yearStr = strs.str();
+
+	strs << rain;
+	std::string rainStr = strs.str();
+
+	return tempStr + "," + yearStr + "," + rainStr;
 }
+
+
 
 
 YearAvg::~YearAvg() {

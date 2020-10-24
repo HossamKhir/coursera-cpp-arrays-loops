@@ -17,7 +17,31 @@ public:
 
 	YearAvg(double, int, double);
 
-	std::string toCSV(void);
+	const std::string toCSV(void);
+
+	double getRain() const {
+		return rain;
+	}
+
+	void setRain(double rain) {
+		this->rain = rain;
+	}
+
+	double getTemp() const {
+		return temp;
+	}
+
+	void setTemp(double temp) {
+		this->temp = temp;
+	}
+
+	int getYear() const {
+		return year;
+	}
+
+	void setYear(int year) {
+		this->year = year;
+	}
 
 private:
 	double temp;

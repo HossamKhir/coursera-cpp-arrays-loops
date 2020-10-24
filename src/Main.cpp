@@ -31,14 +31,29 @@ int main() {
 
 	int size = 0;
 	std::string line;
+	std::string header;
 
+	const int SZ = 62;
+	char delim = ',';
+
+	YearAvg avgs[SZ];
 	ifstream file("yearly.csv");
 
 	if (file.is_open())
 	{
+		getline(file, header);
 		while(getline(file, line))
 		{
-			std::cout << line << std::endl;
+//			std::cout << line << std::endl;
+			stringstream sstr(line);
+			std::string token;
+			int i = 0;
+			std::string toks[3];
+			while(getline(sstr, token, delim))
+			{
+				toks[i++] = token;
+			}
+			avgs[size] = YearAvg(stof(toks[0]), stoi(toks[1]), stof(toks[2]));
 			++size;
 		}
 		file.close();
