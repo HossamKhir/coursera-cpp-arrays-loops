@@ -63,6 +63,22 @@ int main() {
 		std::cerr << "Error opening file" << std::endl;
 	}
 
+	sort(avgs, avgs+SZ, YearAvg::sortByRain);
+
+	ofstream ofile;
+
+	ofile.open("yearout.csv");
+	ofile << header << "\n";
+
+	for(const YearAvg& yearAvg: avgs)
+	{
+		// ofile << yearAvg.toCSV() << "\n";
+		ofile << yearAvg.getTemp() << ","
+				<< yearAvg.getYear() << ","
+				<< yearAvg.getRain() << "\n";
+	}
+	ofile.close();
+
 	std::cout << "The size of the file is " << size << std::endl;
 
 	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!

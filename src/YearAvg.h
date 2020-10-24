@@ -19,6 +19,11 @@ public:
 
 	const std::string toCSV(void);
 
+	static bool sortByRain(const YearAvg& LHS, const YearAvg& RHS)
+	{
+		return LHS.rain < RHS.rain;
+	}
+
 	double getRain() const {
 		return rain;
 	}
